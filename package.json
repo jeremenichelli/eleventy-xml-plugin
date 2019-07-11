@@ -1,0 +1,73 @@
+{
+  "name": "eleventy-xml-plugin",
+  "version": "0.0.0",
+  "description": "Useful set of Liquid filters for XML files composition in Eleventy projects",
+  "main": "dist/eleventy-xml-plugin.js",
+  "scripts": {
+    "format": "prettier ./**/*.js --write",
+    "test": "ava --verbose",
+    "prebuild": "npm test",
+    "start": "microbundle watch -i ./src/index.js",
+    "build": "microbundle -i ./src/index.js",
+    "release": "travis-deploy-once 'semantic-release'"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremenichelli/eleventy-xml-plugin.git"
+  },
+  "keywords": [
+    "eleventy",
+    "plugin",
+    "rss",
+    "sitemap",
+    "xml",
+    "dates",
+    "escape"
+  ],
+  "author": "Jeremias Menichelli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeremenichelli/eleventy-xml-plugin/issues"
+  },
+  "homepage": "https://github.com/jeremenichelli/eleventy-xml-plugin#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^7.6.1",
+    "@commitlint/config-conventional": "^7.6.0",
+    "ava": "^2.0.0",
+    "esm": "^3.2.25",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
+    "microbundle": "^0.11.0",
+    "prettier": "^1.17.1",
+    "semantic-release": "^15.9.9",
+    "sinon": "^6.2.0",
+    "travis-deploy-once": "^5.0.3"
+  },
+  "ava": {
+    "require": [
+      "esm"
+    ]
+  },
+  "lint-staged": {
+    "./**/*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

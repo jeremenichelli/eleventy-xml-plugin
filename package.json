@@ -8,7 +8,7 @@
     "test": "ava --verbose",
     "prebuild": "npm test",
     "start": "microbundle watch -i ./src/index.js",
-    "build": "microbundle -i ./src/index.js",
+    "build": "microbundle -i ./src/index.js --external none",
     "release": "travis-deploy-once 'semantic-release'"
   },
   "files": [
@@ -69,5 +69,8 @@
       "pre-commit": "lint-staged && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "dependencies": {
+    "html-entities": "^1.2.1"
   }
 }

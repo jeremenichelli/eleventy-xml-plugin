@@ -1,4 +1,4 @@
-import { AllHtmlEntities as Entities } from 'html-entities'
+import { XmlEntities as Entities } from 'html-entities'
 
 const entities = new Entities()
 

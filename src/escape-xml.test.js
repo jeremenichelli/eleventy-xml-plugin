@@ -1,8 +1,8 @@
 import test from 'ava'
 import escapeXML from './escape-xml'
 
-test('parses string correctly', (t) => {
-  const str = '&lt;Hey&mdash;there!&gt;'
-  const parsedStr = escapeXML(str)
-  t.is(parsedStr, '<Hey—there!>')
+test('escapes string correctly', (t) => {
+  const str = '<Hey—there!>'
+  const escapedStr = escapeXML(str)
+  t.is(escapedStr, '&lt;Hey&mdash;there!&gt;')
 })
